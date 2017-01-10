@@ -329,7 +329,7 @@ export class CommandService {
     private static parseNewHumanReadable(errors: RustError[], output: string): void {
         let newErrorRegex = new RegExp('(warning|error|note|help)(?:\\[(.*)\\])?\\: (.*)\\s+--> '
             + '(.*):(\\d+):(\\d+)\\n(?:((?:.+\\n)+)\\.+)?(?:[\\d\\s]+\\|.*)*\\n((?:\\s+=.*)+)?', 'g');
-        let newErrorRange = /\s+\|\s+(\^+)/g;
+        let newErrorRange = /\s+\|[-\s]+(\^+)/g;
 
         while (true) {
             const match = newErrorRegex.exec(output);
